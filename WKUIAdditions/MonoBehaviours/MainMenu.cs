@@ -49,10 +49,20 @@ namespace WKUIAdditions.MonoBehaviours
         const float mainButtonsDuration = 0.5f;
         const float mainButtonsXPos = 0;
 
+        static M_Gamemode playgroundGM;
+
         public IEnumerator Start()
         {
             // without waiting it bugged out
             yield return new WaitForSecondsRealtime(.5f);
+
+            if (playgroundGM == null)
+            {
+                playgroundGM = M_Gamemode.CreateInstance<M_Gamemode>();
+                playgroundGM.allowAchievements = false;
+                playgroundGM.introText = "PLAY";
+                playgroundGM.gamemodeName = "Playground";
+            }
 
             #region Play Panel stuff
             if (If.Exists(playPanel, out playPanelCache))
@@ -204,6 +214,7 @@ namespace WKUIAdditions.MonoBehaviours
 
         public void LoadPlayground()
         {
+            CL_GameManager.gamemode = playgroundGM;
             CL_GameManager.gMan.LoadLevel("Playground");
         }
     }
