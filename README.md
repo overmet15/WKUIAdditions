@@ -9,4 +9,4 @@ Then add BepInEx.
 Done!
 
 ## Note
-This mod does not affect the gameplay logic in any way, but its not confirmed that its allowed in speedruns.
+This nor any other mod is allowed in WK speedrunning.
